@@ -16,16 +16,16 @@ enum AppRoute {
   login,
   employeeDashboard,
   employeeQRScan,
-  employeeAttendanceHistory, // Nama enum sudah ada, sekarang akan dibuatkan route
+  employeeAttendanceHistory, 
   adminDashboard,
-  adminUserManagement, // BARU: Ganti nama enum agar konsisten
-  adminAttendanceReport, // Nama enum sudah ada, sekarang akan dibuatkan route
-  adminShiftManagement, // BARU
-  adminBarcodeManagement, // BARU
+  adminUserManagement, 
+  adminAttendanceReport, 
+  adminShiftManagement, 
+  adminBarcodeManagement,
 }
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
-    GlobalKey<NavigatorState>(); // BARU: Untuk GoRouter
+    GlobalKey<NavigatorState>(); 
 
 // Daftar path yang dapat diakses publik tanpa login
 final List<String> publicRoutes = [
@@ -34,9 +34,6 @@ final List<String> publicRoutes = [
 ];
 
 final goRouterProvider = Provider<GoRouter>((ref) {
-  // Perhatikan: authState di sini akan re-evaluate GoRouter setiap kali berubah.
-  // Ini bisa jadi intensif. Pertimbangkan listener jika perlu.
-  // Atau, gunakan refreshListenable.
   final authNotifier = ref
       .watch(authNotifierProvider.notifier); // Untuk akses notifier jika perlu
 
