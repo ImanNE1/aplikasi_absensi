@@ -1,15 +1,15 @@
 import '/data/models/user_model.dart';
-// import 'package:aplikasi_absensi/data/services/api_service.dart'; // DIGANTI
+// import 'package:aplikasi_absensi/data/services/api_service.dart'; 
 import '/data/datasources/remote_datasource.dart'; // BARU
 import '/data/datasources/local_datasource.dart'; // BARU
-// import 'package:dio/dio.dart'; // Tidak perlu dio langsung di repository
+// import 'package:dio/dio.dart'; 
 
-// Interface untuk AuthRepository (baik untuk testing/mocking)
+// Interface untuk AuthRepository 
 abstract class IAuthRepository {
   Future<(User?, String?)> login(String identifier, String password);
   Future<void> logout();
   Future<User?> getCurrentUser();
-  Future<String?> getRole(); // BARU
+  Future<String?> getRole(); 
 }
 
 class AuthRepository implements IAuthRepository {
@@ -62,9 +62,6 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<User?> getCurrentUser() async {
-    // Idealnya, ini akan mengambil data user dari API jika token valid,
-    // atau dari local storage jika ada data user yang disimpan.
-    // Untuk contoh ini, kita asumsikan user data tidak disimpan lengkap di local,
     // hanya role dan token. Jika API punya endpoint /me atau /user, panggil itu.
     String? token = await _localDatasource.getToken();
     if (token == null) return null;
