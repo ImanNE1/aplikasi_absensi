@@ -9,16 +9,11 @@ class ApiService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // (Opsional) Ambil token dari SharedPreferences dan tambahkan ke header
-          // SharedPreferences prefs = await SharedPreferences.getInstance();
-          // String? token = prefs.getString(AppConstants.tokenKey);
-          // if (token != null) {
-          //   options.headers['Authorization'] = 'Bearer $token';
-          // }
-          return handler.next(options); // Lanjutkan request
+          
+          return handler.next(options); 
         },
         onError: (DioException e, handler) {
-          // Tangani error global di sini jika perlu
+
           print('API Error: ${e.message}');
           if (e.response?.statusCode == 401) {
             // Handle unauthorized, mungkin redirect ke login
