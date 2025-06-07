@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import '/core/constants/app_constants.dart';
-import '/data/models/user_model.dart'; // Jika menyimpan user model
+import '/data/models/user_model.dart'; 
 
 abstract class ILocalDatasource {
   Future<void> saveToken(String token);
@@ -11,7 +11,6 @@ abstract class ILocalDatasource {
   Future<void> saveUserId(int userId);
   Future<int?> getUserId();
   Future<void> clearAll();
-  // Tambahkan method lain untuk menyimpan data user, dll.
 }
 
 class LocalDatasource implements ILocalDatasource {
