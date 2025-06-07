@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class IRemoteDatasource {
   Future<Response> post(String path, {dynamic data});
   Future<Response> get(String path, {Map<String, dynamic>? queryParameters});
-  // Tambahkan method lain seperti put, delete jika diperlukan
 }
 
 class RemoteDatasource implements IRemoteDatasource {
