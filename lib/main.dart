@@ -8,7 +8,6 @@ import '/core/theme/app_theme.dart';
 import 'package:intl/date_symbol_data_local.dart'; 
 
 void main() async {
-  // BARU: Ubah jadi async untuk await
   WidgetsFlutterBinding.ensureInitialized(); 
   await initializeDateFormatting(
       'id_ID', null);
